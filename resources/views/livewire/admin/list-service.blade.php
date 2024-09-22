@@ -6,6 +6,8 @@
                     <input class="form-control-plaintext" name="search" type="search" placeholder="Search.." wire:model="search">
                 </div>
             </form>
+            <a href="{{route('admin.addservice')}}" class="btn btn-primary add-row mt-md-0 mt-2" wire:navigate>Add
+                Service</a>
         </div>
 
         <div class="card-body pt-0">
@@ -33,7 +35,7 @@
                                         <a href="{{ route('admin.editservice', $service->id) }}" wire:navigate>
                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                         </a>
-                                        <a href="javascript:void(0)" wire:click="confirmDeletion({{ $service->id }})">
+                                        <a href="javascript:void(0)" wire:click="performDeletion({{ $service->id }})">
                                             <i class="fa fa-trash" title="Delete"></i>
                                         </a>
                                     </td>
@@ -55,26 +57,5 @@
 </div>
 
 @section('script')
-<script>
-   Livewire.on('confirm', (params) => {
-    Swal.fire({
-        title: params.title || 'Are you sure?',
-        text: params.text || 'You won\'t be able to revert this!',
-        icon: params.icon || 'warning',
-        showCancelButton: true,
-        confirmButtonText: params.confirmButtonText || 'Yes, delete it!',
-        cancelButtonText: params.cancelButtonText || 'Cancel',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Correct usage in Livewire 3
-            Livewire.dispatch(params.onConfirmed, { serviceId: params.serviceId });
-        } else if (params.onCancelled) {
-            Livewire.dispatch(params.onCancelled);
-        }
-    });
-});
-
-
-</script>
 
 @endsection

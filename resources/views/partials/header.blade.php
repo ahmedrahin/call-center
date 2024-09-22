@@ -74,7 +74,7 @@
 									<a href="{{ route('about') }}">About Us</a>
 								</li>
 								<li class="{{ request()->routeIs('services') ? 'active' : '' }}">
-									<a href="">Our Services</a>
+									<a href="{{ route('service') }}">Our Services</a>
 								</li>
 								<li class="{{ request()->routeIs('team') ? 'active' : '' }}">
 									<a href="home-blocks.html">Our Team</a>

@@ -15,7 +15,8 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/service', function () {
-    return view('pages.service');
+    $services = Service::latest()->get();
+    return view('pages.service', compact('services'));
 })->name('service');
 
 Route::get('/service/{slug}', function ($slug) {
@@ -36,4 +37,9 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/services', [PagesController::class, 'service'])->name('admin.service');
     Route::get('/add-service', [PagesController::class, 'addService'])->name('admin.addservice');
     Route::get('/edit-service/{id}', [PagesController::class, 'editService'])->name('admin.editservice');
+
+    
+    Route::get('/employee-list', [PagesController::class, 'employee'])->name('admin.employee');
+    Route::get('/add-employee', [PagesController::class, 'addEmployee'])->name('admin.addemployee');
+    Route::get('/edit-employee/{id}', [PagesController::class, 'editEmployee'])->name('admin.editemployee');
 });

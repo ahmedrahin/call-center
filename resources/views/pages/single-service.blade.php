@@ -33,7 +33,7 @@
                 <div class="box-shadow single-service">
                     <div class="item-media">
                         <div>
-                            <img src="{{asset($service->thumb_image)}}" alt="">
+                            <img src="{{asset($service->thumb_image)}}" alt="" class="single-service-img">
                         </div>
                     </div>
                     <div class="item-content">

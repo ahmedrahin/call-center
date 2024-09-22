@@ -31,4 +31,17 @@ class PagesController extends Controller
         return view('admin.pages.service.edit', compact('service'));
     }
 
+    public function employee(){
+        return view('admin.pages.employee.list');
+    }
+
+    public function addEmployee(){
+        return view('admin.pages.employee.add');
+    }
+
+    public function editEmployee($id){
+        $service = Service::find($id);
+        return view('admin.pages.service.edit', compact('service'));
+    }
+
 }

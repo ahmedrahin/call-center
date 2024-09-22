@@ -15,18 +15,6 @@ class ShowMessage extends Component
     public $selectedMessages = [];
     public $search = '';
     
-    protected $listeners = ['deleteMessage'];
-
-    public function deleteMessage(int $id)
-    {
-        // $id = $event['id'];
-        // $message = ContactMessage::find($id);
-        // if ($message) {
-        //     $message->delete();
-        //     $this->dispatch('success', ['message' => 'Message deleted successfully.']);
-        // }
-        dd($id);
-    }
 
     public function deleteSelected()
     {

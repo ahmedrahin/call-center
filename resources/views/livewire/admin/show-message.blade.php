@@ -25,7 +25,7 @@
                                 <th>Email</th>
                                 <th>Replied</th>
                                 <th>Time</th>
-                                <th>Action</th>
+                                <th>Reply</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,9 +48,7 @@
                                         <a href="{{ route('admin.replymessage', $message->id) }}" wire:navigate>
                                             <i class="fa fa-reply-all" aria-hidden="true"></i>
                                         </a>
-                                        <a href="javascript:void(0)" onclick="confirmDelete({{ $message->id }})">
-                                            <i class="fa fa-trash" title="Delete"></i>
-                                        </a>
+                                       
                                     </td>
                                 </tr>
                             @endforeach
@@ -70,23 +68,5 @@
 </div>
 
 @section('script')
-    <script>
-        document.addEventListener('livewire:load', function () {
-            window.confirmDelete = function (id) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "Do you want to delete this message?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Livewire.emit('deleteMessage', id); // Ensure Livewire is properly included
-                    }
-                });
-            };
-        });
-    </script>
+   
 @endsection

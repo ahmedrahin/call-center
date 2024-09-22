@@ -67,3 +67,11 @@ form .text-danger{
    padding-top: 20px !important;
    padding-bottom: 50px !important;
 }
+.service-item img {
+    height: 290px;
+    object-fit: cover;
+}
+img.single-service-img {
+    height: 400px;
+    object-fit: cover;
+}

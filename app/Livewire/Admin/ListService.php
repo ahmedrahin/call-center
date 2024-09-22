@@ -16,22 +16,7 @@ class ListService extends Component
 
     
 
-    public function confirmDeletion($serviceId)
-    {
-        // Dispatch the confirmation dialog
-        $this->dispatch('confirm', [
-            'title' => 'Are you sure?',
-            'text' => 'You won\'t be able to revert this!',
-            'icon' => 'warning',
-            'confirmButtonText' => 'Yes, delete it!',
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'deleteService',
-            'onCancelled' => 'cancelDeletion',
-            'serviceId' => $serviceId // Pass the serviceId to the callback
-        ]);
-    }
-
-    public function deleteService($serviceId)
+    public function performDeletion($serviceId)
     {
         $service = Service::findOrFail($serviceId);
 
@@ -53,7 +38,7 @@ class ListService extends Component
         $service->delete();
 
         // Dispatch a success message
-        $this->dispatch('success', ['message' => 'Service has been deleted.']);
+        $this->dispatch('success', ['message' => 'Service has been deleted successfully!']);
     }
 
 
