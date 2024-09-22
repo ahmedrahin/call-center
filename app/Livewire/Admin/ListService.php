@@ -11,35 +11,50 @@ class ListService extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search = '';
-
+    public $serviceId;
     protected $listeners = ['deleteMessage'];
 
     
 
     public function confirmDeletion($serviceId)
-{
-    $this->dispatch('confirm', [
-        'title' => 'Are you sure?',
-        'text' => 'You won\'t be able to revert this!',
-        'icon' => 'warning',
-        'confirmButtonText' => 'Yes, delete it!',
-        'cancelButtonText' => 'Cancel',
-        'onConfirmed' => 'deleteService', // Call this method if confirmed
-        'onCancelled' => 'cancelDeletion' // Optional method if cancelled
-    ])->to('confirmDeletion', $serviceId); // Passing the ID to the callback
-}
+    {
+        // Dispatch the confirmation dialog
+        $this->dispatch('confirm', [
+            'title' => 'Are you sure?',
+            'text' => 'You won\'t be able to revert this!',
+            'icon' => 'warning',
+            'confirmButtonText' => 'Yes, delete it!',
+            'cancelButtonText' => 'Cancel',
+            'onConfirmed' => 'deleteService',
+            'onCancelled' => 'cancelDeletion',
+            'serviceId' => $serviceId // Pass the serviceId to the callback
+        ]);
+    }
 
-public function deleteService($serviceId)
-{
-    $service = Service::findOrFail($serviceId);
-    
-    // Delete the service
-    $service->delete();
+    public function deleteService($serviceId)
+    {
+        $service = Service::findOrFail($serviceId);
 
-    // Optionally, you can dispatch a success message here
-    $this->dispatch('success', ['message' => 'Service has been deleted.']);
-}
+        if ($service->image) {
+            $oldImagePath = public_path($service->image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
 
+        if ($service->thumb_image) {
+            $oldImagePath = public_path($service->thumb_image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
+
+        // Delete the service
+        $service->delete();
+
+        // Dispatch a success message
+        $this->dispatch('success', ['message' => 'Service has been deleted.']);
+    }
 
 
     public function updatingSearch()

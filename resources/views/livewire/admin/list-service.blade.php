@@ -14,6 +14,7 @@
                     <table class="all-package coupon-table table">
                         <thead>
                             <tr>
+                                <th>Image</th>
                                 <th>Title</th>
                                 <th>Short Title</th>
                                 <th>Action</th>
@@ -22,6 +23,9 @@
                         <tbody>
                             @foreach($services as $service)
                                 <tr>
+                                    <td>
+                                        <img src="{{asset($service->image)}}" alt="">
+                                    </td>
                                     <td>{{ $service->title }}</td>
                                     <td>{{ $service->short_title }}</td>
 
@@ -32,7 +36,6 @@
                                         <a href="javascript:void(0)" wire:click="confirmDeletion({{ $service->id }})">
                                             <i class="fa fa-trash" title="Delete"></i>
                                         </a>
-                                        
                                     </td>
                                 </tr>
                             @endforeach
@@ -52,23 +55,26 @@
 </div>
 
 @section('script')
-    <script>
-       Livewire.on('confirm', (event) => {
+<script>
+   Livewire.on('confirm', (params) => {
     Swal.fire({
-        title: event.title,
-        text: event.text,
-        icon: event.icon,
+        title: params.title || 'Are you sure?',
+        text: params.text || 'You won\'t be able to revert this!',
+        icon: params.icon || 'warning',
         showCancelButton: true,
-        confirmButtonText: event.confirmButtonText,
-        cancelButtonText: event.cancelButtonText,
+        confirmButtonText: params.confirmButtonText || 'Yes, delete it!',
+        cancelButtonText: params.cancelButtonText || 'Cancel',
     }).then((result) => {
         if (result.isConfirmed) {
-            Livewire.dispatch(event.onConfirmed, event.to); // Pass the service ID
-        } else if (event.onCancelled) {
-            Livewire.dispatch(event.onCancelled);
+            // Correct usage in Livewire 3
+            Livewire.dispatch(params.onConfirmed, { serviceId: params.serviceId });
+        } else if (params.onCancelled) {
+            Livewire.dispatch(params.onCancelled);
         }
     });
 });
 
-    </script>
+
+</script>
+
 @endsection
