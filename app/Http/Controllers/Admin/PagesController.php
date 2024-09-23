@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactMessage;
+use App\Models\Employee;
 use App\Models\Service;
 
 class PagesController extends Controller
@@ -40,8 +41,8 @@ class PagesController extends Controller
     }
 
     public function editEmployee($id){
-        $service = Service::find($id);
-        return view('admin.pages.service.edit', compact('service'));
+        $employee = Employee::find($id);
+        return view('admin.pages.employee.edit', compact('employee'));
     }
 
 }

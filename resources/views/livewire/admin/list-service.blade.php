@@ -1,4 +1,4 @@
-<div>
+<div wire:poll.visible>
     <div class="card">
         <div class="card-header" style="border-bottom: 0">
             <form class="form-inline search-form search-box">
