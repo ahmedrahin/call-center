@@ -45,4 +45,12 @@ class PagesController extends Controller
         return view('admin.pages.employee.edit', compact('employee'));
     }
 
+    public function review(){
+        return view('admin.pages.review.list');
+    }
+
+    public function addReview(){
+        return view('admin.pages.review.add');
+    }
+
 }

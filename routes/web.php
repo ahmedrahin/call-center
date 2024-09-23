@@ -42,4 +42,7 @@ Route::group(['prefix' => '/admin'], function(){
     Route::get('/employee-list', [PagesController::class, 'employee'])->name('admin.employee');
     Route::get('/add-employee', [PagesController::class, 'addEmployee'])->name('admin.addemployee');
     Route::get('/edit-employee/{id}', [PagesController::class, 'editEmployee'])->name('admin.editemployee');
+
+    Route::get('/review-list', [PagesController::class, 'review'])->name('admin.review');
+    Route::get('/add-review', [PagesController::class, 'addReview'])->name('admin.addreview');
 });

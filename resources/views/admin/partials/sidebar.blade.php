@@ -74,6 +74,29 @@
                     </li>
                 </ul>
             </li> 
+
+            <li class="">
+                <a class="sidebar-header" href="javascript:void(0)">
+                    <i data-feather="box"></i>
+                    <span>Reviews</span>
+                    <i class="fa fa-angle-right pull-right"></i>
+                </a>
+
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{{route('admin.review')}}" wire:navigate>
+                            <i class="fa fa-circle"></i>
+                            <span>All Reviews</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.addreview')}}" wire:navigate>
+                            <i class="fa fa-circle"></i>
+                            <span>Add New Reviews</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> 
         </ul>
     </div>
 </div>
