@@ -13,30 +13,23 @@ class ListReview extends Component
     public $search = '';
     public $reviewId;
 
-    // public function performDeletion($serviceId)
-    // {
-    //     $service = Service::findOrFail($serviceId);
+    public function performDeletion($reviewId)
+    {
+        $review = Review::findOrFail($reviewId);
 
-    //     if ($service->image) {
-    //         $oldImagePath = public_path($service->image);
-    //         if (file_exists($oldImagePath)) {
-    //             unlink($oldImagePath);
-    //         }
-    //     }
+        if ($review->image) {
+            $oldImagePath = public_path($review->image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
 
-    //     if ($service->thumb_image) {
-    //         $oldImagePath = public_path($service->thumb_image);
-    //         if (file_exists($oldImagePath)) {
-    //             unlink($oldImagePath);
-    //         }
-    //     }
+        // Delete the service
+        $review->delete();
 
-    //     // Delete the service
-    //     $service->delete();
-
-    //     // Dispatch a success message
-    //     $this->dispatch('success', ['message' => 'Service has been deleted successfully!']);
-    // }
+        // Dispatch a success message
+        $this->dispatch('success', ['message' => 'Review has been deleted successfully!']);
+    }
 
     public function render()
     {

@@ -119,7 +119,7 @@
 
             <div class="col-12">
                 <button class="btn btn-primary mt-3 d-block" style="border: none; border-radius: 0; width: 200px;">
-                    <span wire:loading.remove wire:target="update"><i class="fa fa-plus-circle" aria-hidden="true"></i>Save Changes </span>
+                    <span wire:loading.remove wire:target="update"><i class="fa fa-save" aria-hidden="true"></i> Save Changes </span>
                     <span wire:loading wire:target="update">
                         <i class="fa fa-spinner fa-spin"></i> Loading...
                     </span>

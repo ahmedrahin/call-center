@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\PagesController;
 use App\Models\Service;
+use App\Models\Employee;
 
 
 Route::get('/', function () {
@@ -23,6 +24,11 @@ Route::get('/service/{slug}', function ($slug) {
     $service = Service::where('slug', $slug)->firstOrFail();
     return view('pages.single-service', compact('service'));
 })->name('single.service');
+
+Route::get('/employee/{id}', function($id){
+    $employee = Employee::where('id', $id)->first();
+    return view('pages.single-employee', compact('employee'));
+})->name('single.employee');
 
 Route::get('/contact', function () {
     return view('pages.contact');

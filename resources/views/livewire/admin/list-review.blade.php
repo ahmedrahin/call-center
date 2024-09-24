@@ -18,7 +18,7 @@
                             <tr>
                                 <th>Image</th>
                                 <th>Name</th>
-                                <th>Post</th>
+                                <th>Messge</th>
                                 <th>Date</th>
                                 <th>Delete</th>
                             </tr>
@@ -30,10 +30,12 @@
                                         <img src="{{asset($review->image)}}" alt="">
                                     </td>
                                     <td>{{ $review->name }}</td>
-                                    <td>{{ $review->post }}</td>
+                                   <td>
+                                    {{ \Illuminate\Support\Str::limit($review->message, 50, '...') }}
+                                   </td>
 
                                     <td>
-                                        {{ $employee->created_at->format('d-M-y') }}
+                                        {{ $review->created_at->diffForHumans() }}
                                     </td>
                                     <td class="btn-action">
                                         <a href="javascript:void(0)" wire:click="performDeletion({{ $review->id }})">

@@ -75,3 +75,19 @@ img.single-service-img {
     height: 400px;
     object-fit: cover;
 }
+.first-name {
+    background: #ffcbcb;
+    width: 90px;
+    height: 90px;
+    font-size: 28px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00000091;
+}
+.item-media img {
+    height: 180px;
+    object-fit: cover;
+}

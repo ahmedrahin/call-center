@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="ls s-pt-60 s-pb-30 s-pt-lg-100 s-pb-lg-70 s-pt-xl-120 s-pb-xl-90 c-gutter-30 c-mb-30">
+    <section class="ls s-pt-60 s-pb-30 s-pt-lg-100 s-pb-lg-70 s-pt-xl-120 s-pb-xl-90 c-gutter-30 c-mb-30 mb-0 mt-0">
         <div class="container">
             <div class="row">
                 @foreach ($services as $service)
@@ -25,4 +25,6 @@
             </div>
         </div>
     </section>
+
+    @livewire('all-review')
 @endsection

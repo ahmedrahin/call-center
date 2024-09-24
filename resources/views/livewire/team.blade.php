@@ -15,125 +15,35 @@
 
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
-                                    <div class="item-media rounded-circle">
-                                        <a href="team-single.html">
-                                            <img src="images/team/13.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h5 class="team-name">
-                                            <a href="team-single.html">Vernon C. Hibbard</a>
-                                        </h5>
-                                        <p class="team-position">
-                                            Manager
-                                        </p>
-                                        <span class="social-icons">
-                                            <a href="https://facebook.com/" class="fa fa-facebook" title="facebook"></a>
-                                            <a href="#" class="fa fa-envelope" title="email"></a>
-                                            <a href="https://instagram.com/" class="fa fa-instagram" title="instagram"></a>
-                                            <a href="https://youtube.com/" class="fa fa-phone" title="fa-phone"></a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
-                                    <div class="item-media rounded-circle">
-                                        <a href="team-single.html">
-                                            <img src="images/team/12.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h5 class="team-name">
-                                            <a href="team-single.html">Betty C. Reid</a>
-                                        </h5>
-                                        <p class="team-position">
-                                            Marketer
-                                        </p>
-                                        <span class="social-icons">
-                                            <a href="https://facebook.com/" class="fa fa-facebook" title="facebook"></a>
-                                            <a href="#" class="fa fa-envelope" title="email"></a>
-                                            <a href="https://instagram.com/" class="fa fa-instagram" title="instagram"></a>
-                                            <a href="https://youtube.com/" class="fa fa-phone" title="fa-phone"></a>
-                                        </span>
+                            @foreach( $employees as $employee )
+                                <div class="swiper-slide">
+                                    <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
+                                        <div class="item-media rounded-circle">
+                                            <a href="{{ route('single.employee',$employee->id) }}">
+                                                @if( $employee->image )
+                                                    <img src="{{asset($employee->image)}}" alt="">
+                                                @else 
+                                                    <img src="{{asset('images/no.png')}}" alt="">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="item-content">
+                                            <h5 class="team-name">
+                                                <a href="{{ route('single.employee',$employee->id) }}"">{{$employee->name}}</a>
+                                            </h5>
+                                            <p class="team-position">
+                                                {{$employee->post}}
+                                            </p>
+                                            <span class="social-icons">
+                                                <a href="{{$employee->facebook_link ? $employee->facebook_link : '#'}}" class="fa fa-facebook" title="facebook" target="_blank"></a>
+                                                <a href="mailto:{{$employee->email}};" class="fa fa-envelope" title="email"></a>
+                                                <a href="{{$employee->instagam_link ? $employee->instagam_link : '#'}}" class="fa fa-instagram" title="instagram" target="_blank"></a>
+                                                <a href="{{ $employee->phone ? 'tel:'.$employee->phone : '#' }}" class="fa fa-phone" title="fa-phone"></a>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
-                                    <div class="item-media rounded-circle">
-                                        <a href="team-single.html">
-                                            <img src="images/team/11.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h5 class="team-name">
-                                            <a href="team-single.html">Thomas E. Brewer</a>
-                                        </h5>
-                                        <p class="team-position">
-                                            Developer
-                                        </p>
-                                        <span class="social-icons">
-                                            <a href="https://facebook.com/" class="fa fa-facebook" title="facebook"></a>
-                                            <a href="#" class="fa fa-envelope" title="email"></a>
-                                            <a href="https://instagram.com/" class="fa fa-instagram" title="instagram"></a>
-                                            <a href="https://youtube.com/" class="fa fa-phone" title="fa-phone"></a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="swiper-slide">
-                                <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
-                                    <div class="item-media rounded-circle">
-                                        <a href="team-single.html">
-                                            <img src="images/team/10.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h5 class="team-name">
-                                            <a href="team-single.html">Maria C. Griffin</a>
-                                        </h5>
-                                        <p class="team-position">
-                                            HR
-                                        </p>
-                                        <span class="social-icons">
-                                            <a href="https://facebook.com/" class="fa fa-facebook" title="facebook"></a>
-                                            <a href="#" class="fa fa-envelope" title="email"></a>
-                                            <a href="https://instagram.com/" class="fa fa-instagram" title="instagram"></a>
-                                            <a href="https://youtube.com/" class="fa fa-phone" title="fa-phone"></a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="team-member2 gradient-hover vertical-item text-center box-shadow ls" data-index="0">
-                                    <div class="item-media rounded-circle">
-                                        <a href="team-single.html">
-                                            <img src="images/team/12.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h5 class="team-name">
-                                            <a href="team-single.html">Betty C. Reid</a>
-                                        </h5>
-                                        <p class="team-position">
-                                            Marketer
-                                        </p>
-                                        <span class="social-icons">
-                                            <a href="https://facebook.com/" class="fa fa-facebook" title="facebook"></a>
-                                            <a href="#" class="fa fa-envelope" title="email"></a>
-                                            <a href="https://instagram.com/" class="fa fa-instagram" title="instagram"></a>
-                                            <a href="https://youtube.com/" class="fa fa-phone" title="fa-phone"></a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     
