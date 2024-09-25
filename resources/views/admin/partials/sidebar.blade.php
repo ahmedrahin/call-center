@@ -97,6 +97,29 @@
                     </li>
                 </ul>
             </li> 
+
+            <li class="">
+                <a class="sidebar-header" href="javascript:void(0)">
+                    <i data-feather="box"></i>
+                    <span>Faq</span>
+                    <i class="fa fa-angle-right pull-right"></i>
+                </a>
+
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{{route('admin.faq')}}" wire:navigate>
+                            <i class="fa fa-circle"></i>
+                            <span>All Faq</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.addfaq')}}" wire:navigate>
+                            <i class="fa fa-circle"></i>
+                            <span>Add New Faq</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> 
         </ul>
     </div>
 </div>

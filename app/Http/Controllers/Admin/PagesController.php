@@ -53,4 +53,12 @@ class PagesController extends Controller
         return view('admin.pages.review.add');
     }
 
+    public function faq(){
+        return view('admin.pages.faq.list');
+    }
+
+    public function addFaq(){
+        return view('admin.pages.faq.add');
+    }
+
 }

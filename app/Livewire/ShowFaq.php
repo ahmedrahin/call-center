@@ -3,11 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Faq;
 
-class Faq extends Component
+class ShowFaq extends Component
 {
     public function render()
     {
-        return view('livewire.faq');
+        return view('livewire.show-faq');
     }
 }

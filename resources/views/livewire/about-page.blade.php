@@ -133,7 +133,7 @@
 
     @livewire('team')
 
-    @livewire('faq')
+    @livewire('show-faq')
 </div>
 
 

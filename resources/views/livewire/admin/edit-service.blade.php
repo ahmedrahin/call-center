@@ -49,7 +49,7 @@
                         @endif
                     </div>
             
-                    <input type="file" wire:model="image" style="display: none;" x-ref="fileInput1">
+                    <input type="file" wire:model="image" style="display: none;" x-ref="fileInput1"  accept="image/png, image/jpeg">
             
                     @error('image')
                         <span class="text-danger pt-2 d-block">{{ $message }}</span>
@@ -72,7 +72,7 @@
                         @endif
                     </div>
             
-                    <input type="file" wire:model="thumb_image" style="display: none;" x-ref="fileInput2">
+                    <input type="file" wire:model="thumb_image" style="display: none;" x-ref="fileInput2"  accept="image/png, image/jpeg">
             
                     @error('thumb_image')
                         <span class="text-danger pt-2 d-block">{{$message}}</span>

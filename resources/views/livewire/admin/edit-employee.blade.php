@@ -108,7 +108,7 @@
                     </div>
                     
                     <!-- File Input -->
-                    <input type="file" wire:model="image" style="display: none;" x-ref="fileInput1">
+                    <input type="file" wire:model="image" style="display: none;" x-ref="fileInput1"  accept="image/png, image/jpeg">
                     
                     @error('image')
                         <span class="text-danger pt-2 d-block">{{ $message }}</span>

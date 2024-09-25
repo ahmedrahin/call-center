@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PagesController;
 use App\Models\Service;
 use App\Models\Employee;
+use App\Models\Faq;
 
 
 Route::get('/', function () {
+    
     return view('pages.home');
 })->name('home');
 
@@ -51,4 +53,7 @@ Route::group(['prefix' => '/admin'], function(){
 
     Route::get('/review-list', [PagesController::class, 'review'])->name('admin.review');
     Route::get('/add-review', [PagesController::class, 'addReview'])->name('admin.addreview');
+
+    Route::get('/faq-list', [PagesController::class, 'faq'])->name('admin.faq');
+    Route::get('/add-faq', [PagesController::class, 'addFaq'])->name('admin.addfaq');
 });
